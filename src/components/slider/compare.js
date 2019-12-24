@@ -10,18 +10,18 @@ function Slider (props) {
 
   useEffect(() => {
     if (bannerList.length && !sliderSwiper) {
-      let sliderSwiper = new Swiper('.slider-container', {
-        loop: true,
-        autoplay: true,
-        autoplayDisableOnInteraction: false,
-        pagination: {
-          el:'.swiper-pagination'
-        },
-      })
-      setSliderSwiper(sliderSwiper)
+        let sliderSwiper = new Swiper('.slider-container', {
+          loop: true,
+          autoplay: true,
+          autoplayDisableOnInteraction: false,
+          pagination: {
+            el:'.swiper-pagination'
+          },
+        })
+        setSliderSwiper(sliderSwiper)
     }
   }, [bannerList.length, sliderSwiper])
-
+  
   return (
     <SliderContainer>
       <div className="slider-container">
@@ -29,7 +29,7 @@ function Slider (props) {
           {
             bannerList.map(slider => {
               return (
-                <div className="swiper-slide" key={slider.index}>
+                <div className="swiper-slider" key={slider.index}>
                   <div className="slider-nav">
                     <img src={slider.imageUrl} width="100%" height="100%" alt="推荐"/>
                   </div>
@@ -39,8 +39,8 @@ function Slider (props) {
           }
         </div>
         <div className="swiper-pagination"></div>
-      </div>
-      <div className="before"></div>
+      </div>       
+      <div className="before"></div>    
     </SliderContainer>
   )
 }
